@@ -9,7 +9,7 @@ is_heavy = my_weight > 3000
 print(f"Let's talk about {my_name}.")
 print(f"He is {my_height} inches tall.")
 print(f"He's {my_weight} pounds heavy.")
-print(f"It is {is_heavy} that he is big and strong")
+print(f"It is {is_heavy} that he is obese.")
 print(f"He's got {my_eyes} eyes and {my_hair} hair.")
 
 total = my_age + my_height + my_weight
