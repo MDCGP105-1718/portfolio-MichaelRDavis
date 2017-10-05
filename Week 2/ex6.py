@@ -6,15 +6,17 @@ if(Name == "Chris Janes"):
     print("Hello tutor!")
 #Age
 Age = 0
-Age = input("Enter your age:")
+Age = int(input("Enter your age:"))
 print("You are", Age, "year's old")
+    if(Age <= 0):
+        print("You can't be that old")
 #Height
 Height = 0
-Height = input("Enter your height in centimeters")
+Height = float(input("Enter your height in centimeters"))
 print("You are", Height, "centimeters tall")
 #Weight
 Weight = 0
-Weight = input("Enter your weight in kilograms")
+Weight = float(input("Enter your weight in kilograms"))
 print("Your weight is", Weight, "kilograms")
 #Eye color
 EyeColor = "/0"

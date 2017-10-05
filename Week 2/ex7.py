@@ -5,3 +5,8 @@ annual_salary = float(input("Enter you annual salary: "))
 portion_saved = float(input("Enter the percent of your salary to save, as a decimal: "))
 total_cost = float(input("Enter the cost of your dream home: "))
 monthly_salary = (annual_salary/12)
+n = 0
+while():
+    n = n + 1
+    if(portion_saved == portion_desposit):
+        print(f"Number of months: {n}")
