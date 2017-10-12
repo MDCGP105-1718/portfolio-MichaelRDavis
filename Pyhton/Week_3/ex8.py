@@ -24,7 +24,7 @@ monthly_salary = (annual_salary/12)
 n = 0
 while(current_savings < total_cost * portion_desposit):
     current_savings += current_savings * 0.04/12
-    if(n == 6 % 12):
+    if(n % 6 == 0):
         monthly_salary += semi_anual_raise
     current_savings += monthly_salary * portion_saved
     n += 1
