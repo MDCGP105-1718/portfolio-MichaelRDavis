@@ -30,7 +30,6 @@ while(current_savings - down_payment >= epsilon and months <= 36):
             print("It is not possible to pay the down payment in three years")
 
             percent_saved = ((low + high) / 2)
-
             bisection_steps += 1
             months += 1
 
