@@ -1,5 +1,5 @@
 low = int(input("Insert a low number:\n"))
-high = int(input("Insert a high number:\n"))
+high = int(input("Insert a high number:\ng"))
 
 def FizzBuzz(low, high):
     for n in range(low, high):
