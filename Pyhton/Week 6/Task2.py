@@ -1,5 +1,5 @@
 def openFile():
-    fileObj = open("lyrics.txt")
+    fileObj = open("lyrics1.txt")
     return fileObj
 
 def readFile(fileObj):
@@ -9,4 +9,16 @@ def readFile(fileObj):
 stringLine = readFile(openFile())
 print(stringLine)
 
-x = input("Insert a number to find a word that is most used in song lyrics\n")
+freq = {}
+
+def findWord(stringLine):
+    stringLine.split()
+    if word in stringLine:
+        print(word)
+
+findWord(stringLine)
+
+#def findMultipleWords(x):
+
+
+x = int(input("Enter a number to search duplicate words in song lyrics"))
