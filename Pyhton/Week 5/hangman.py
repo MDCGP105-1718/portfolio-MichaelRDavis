@@ -3,8 +3,9 @@ import os
 import string
 
 FILENAME = "words.txt"
+DEBUG = 0
 
-# Read & opne the file into memory
+# Read & open the file into memory
 def readFile():
     fileObject = open(FILENAME)
     return fileObject
@@ -31,11 +32,12 @@ tempFileObj = readFile()
 wordToGuess = getRandomString(getWordList(tempFileObj))
 
 # Print wordToGuess for debugging purposes
-print(f"{wordToGuess}")
+if DEBUG:
+    print(f"{wordToGuess}")
 
-# The max number of tries#
+# The max number of tries
 tries = 0
-maxTries = 5
+maxTries = 6
 
 # Get the word size
 wordSize = len(wordToGuess)
@@ -43,15 +45,16 @@ wordSize = len(wordToGuess)
 # Introduce the user to the game of hangman
 print("Welcome to Hangman!\n")
 print("Insert a letter to guess too many wrong guesses and you'll be hanged!\n")
-print(f"The word I'm thinking of is {wordSize} letters long")
+print(f"The word I'm thinking of is {wordSize} letters long\n")
 
-#Ask the use to insert a word to guess
+# Ask the use to insert a word to guess
 while tries <= maxTries:
     guessLetter = input("Insert a letter to guess:\n")
     # Check to see if word guessed is in list of words
-    if guessLetter in wordToGuess:
+    for i in wordToGuess:
+        print(i)
+    if i in guessLetter:
         print("You guessed correctly well done human!\n")
-        break
     else:
         print("Guess Again!")
         print(f"You have {tries} remaining!\n")
