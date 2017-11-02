@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+# Solution to ex9
+=======
 # Copyright Chris Janes 2017. All Rights Reserved.
 # Author Chris Janes - 19 October 2017
 
@@ -88,3 +91,4 @@ if rate_ok:
     print("Steps in bisection search:", steps)
 else:
     print("It is not possible to pay the down payment in three years")
+>>>>>>> 975139a55dfc5e1ef598405cfe15222a502759f5
