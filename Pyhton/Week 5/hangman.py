@@ -3,7 +3,7 @@ import os
 import string
 
 FILENAME = "words.txt"
-DEBUG = 0
+DEBUG = False
 
 # Read & open the file into memory
 def readFile():
@@ -78,9 +78,10 @@ while lettersWrong != tries and ("".join(clue) != wordToGuess):
     print("Guesses: ", lettersGuessed)
 
     if lettersWrong == tries:
-        print("Sorry you ran oput of guesses.\n")
+        print("Sorry you ran out of guesses.\n")
         print(f"The word was {wordToGuess}.\n")
         break
     if "".join(clue) == wordToGuess:
         print("Congratulations, you won!")
         print(f"The word was {wordToGuess}.\n")
+        break
