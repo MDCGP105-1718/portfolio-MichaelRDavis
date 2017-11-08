@@ -1,24 +1,18 @@
-def openFile():
-    fileObj = open("lyrics1.txt")
-    return fileObj
+import string
+import random
 
-def readFile(fileObj):
-    line = fileObj.readline()
-    return line
+FILENAME = "lyrics1.txt"
+DEBUG = 1
 
-stringLine = readFile(openFile())
-print(stringLine)
+# Dictionary of words found
+wordFrequency = {}
 
-freq = {}
+# Read the file, open up file in memory and read words from file
+def findWords():
+    fileObj = open(FILENAME)
+    for words in iter(fileObj):
+        if DEBUG:
+            print(" ", len(words), "words loaded.")
+    return words
 
-def findWord(stringLine):
-    stringLine.split()
-    if word in stringLine:
-        print(word)
-
-findWord(stringLine)
-
-#def findMultipleWords(x):
-
-
-x = int(input("Enter a number to search duplicate words in song lyrics"))
+findWords()

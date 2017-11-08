@@ -36,11 +36,16 @@ if DEBUG:
     print(f"{wordToGuess}")
 
 # The max number of tries
-tries = 0
-maxTries = 6
+tries = 6
 
 # Get the word size
 wordSize = len(wordToGuess)
+
+clue = wordSize * ["_"]
+lettersGuessed = ""
+guesses = 0
+lettersRight = 0
+lettersWrong = 0
 
 # Introduce the user to the game of hangman
 print("Welcome to Hangman!\n")
@@ -48,17 +53,34 @@ print("Insert a letter to guess too many wrong guesses and you'll be hanged!\n")
 print(f"The word I'm thinking of is {wordSize} letters long\n")
 
 # Ask the use to insert a word to guess
-while tries <= maxTries:
+while lettersWrong != tries and ("".join(clue) != wordToGuess):
     guessLetter = input("Insert a letter to guess:\n")
-    # Check to see if word guessed is in list of words
-    for i in wordToGuess:
-        print(i)
-    if i in guessLetter:
-        print("You guessed correctly well done human!\n")
+    letter = guessLetter
+
+    if len(letter) == 1 and letter.isalpha():
+        if lettersGuessed.find(letter) != -1:
+            print(f"You already guessed the letter {letter} please guess another\n")
+        else:
+            lettersGuessed += letter
+            firstIndex = wordToGuess.find(letter)
+            if firstIndex == -1:
+                lettersWrong += 1
+                print("You guessed wrong!\n")
+            else:
+                print(f"You guessed correctly the letter {letter} is a letter in the word!\n")
+                for i in range(wordSize):
+                    if letter == wordToGuess[i]:
+                        clue[i] = letter
     else:
-        print("Guess Again!")
-        print(f"You have {tries} remaining!\n")
-        tries += 1
-    if(tries >= 5):
-        print("You have been hanged!")
+        print("Please guess again!\n")
+
+    print(" ".join(clue))
+    print("Guesses: ", lettersGuessed)
+
+    if lettersWrong == tries:
+        print("Sorry you ran oput of guesses.\n")
+        print(f"The word was {wordToGuess}.\n")
         break
+    if "".join(clue) == wordToGuess:
+        print("Congratulations, you won!")
+        print(f"The word was {wordToGuess}.\n")
