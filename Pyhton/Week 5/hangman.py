@@ -47,16 +47,19 @@ guesses = 0
 lettersRight = 0
 lettersWrong = 0
 
+def
 # Introduce the user to the game of hangman
 print("Welcome to Hangman!\n")
 print("Insert a letter to guess too many wrong guesses and you'll be hanged!\n")
 print(f"The word I'm thinking of is {wordSize} letters long\n")
+
 
 # Ask the use to insert a word to guess
 while lettersWrong != tries and ("".join(clue) != wordToGuess):
     guessLetter = input("Insert a letter to guess:\n")
     letter = guessLetter
 
+    # Check to see if the user inserts a valid letter or has already guessed that letter
     if len(letter) == 1 and letter.isalpha():
         if lettersGuessed.find(letter) != -1:
             print(f"You already guessed the letter {letter} please guess another\n")

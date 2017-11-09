@@ -1,10 +1,12 @@
 #Name
 Name = "/0"
 Name = input("Enter your name:")
+if not Name.isplaha():
+    print("You must insert alphabetical characters")
 print("Hello", Name)
 if(Name == "Chris Janes"):
     print("Hello tutor!")
-    
+
 #Age
 Age = 0
 Age = int(input("Enter your age:"))
