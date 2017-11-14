@@ -1,5 +1,10 @@
-low = int(input("Insert a low number:\n"))
-high = int(input("Insert a high number:\n"))
+while True:
+    try:
+        low = int(input("Insert a low number:\n"))
+        high = int(input("Insert a high number:\n"))
+        break
+    except ValueError:
+        continue
 
 def FizzBuzz(low, high):
     for n in range(low, high):

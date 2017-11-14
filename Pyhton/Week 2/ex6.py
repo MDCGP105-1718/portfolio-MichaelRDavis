@@ -1,39 +1,70 @@
 #Name
 Name = "/0"
-Name = input("Enter your name:")
-if not Name.isplaha():
-    print("You must insert alphabetical characters")
-print("Hello", Name)
-if(Name == "Chris Janes"):
-    print("Hello tutor!")
+while True:
+    Name = input("Enter your name: \n")
+    if not Name.isalpha():
+        print("You must insert alphabetical characters.\n")
+        continue
+    else:
+        print("Hello", Name)
+        break
 
 #Age
 Age = 0
-Age = int(input("Enter your age:"))
-print("You are", Age, "year's old")
-    if(Age <= 0):
-        print("You can't be that old")
+while True:
+    try:
+        Age = int(input("Enter your age: \n"))
+        print("You are", Age, "year's old.\n")
+        if(Age <= 0):
+            print("You can't be that old.\n")
+        break
+    except ValueError:
+        print("You must insert numerical characters.\n")
+        continue
 
 #Height
 Height = 0
-Height = float(input("Enter your height in centimeters"))
-print("You are", Height, "centimeters tall")
-    if(Height > 215):
-        print("WOW! You're tall!")
+while True:
+    try:
+        Height = float(input("Enter your height in centimeters: \n"))
+        print("You are", Height, "centimeters tall.\n")
+        if(Height > 215):
+            print("WOW! You're tall!")
+        break
+    except ValueError:
+        print("You must insert numerical characters.\n")
+        continue
 
 #Weight
 Weight = 0
-Weight = float(input("Enter your weight in kilograms"))
-print("Your weight is", Weight, "kilograms")
-    if(Weight > 150):
-        print("I think you need to go on a diet!")
+while True:
+    try:
+        Weight = float(input("Enter your weight in kilograms: \n"))
+        print("Your weight is", Weight, "kilograms")
+        if(Weight > 150):
+            print("I think you need to go on a diet!")
+        break
+    except ValueError:
+        print("You must insert numerical characters.\n")
 
 #Eye color
 EyeColor = "/0"
-EyeColor = input("Enter your eye color")
-print("Your eyes are", EyeColor)
+while True:
+    EyeColor = input("Enter your eye color: \n")
+    if not EyeColor.isalpha():
+        print("You must insert alphabetical characters.\n")
+        continue
+    else:
+        print("Your eyes are", EyeColor)
+        break
 
 #Hair color
 HairColor = "/0"
-HairColor = input("Enter your hair color")
-print("Your hair is", HairColor)
+while True:
+    HairColor = input("Enter your hair color: \n")
+    if not HairColor.isalpha():
+        print("You must insert alphabetical characters.\n")
+        continue
+    else:
+        print("Your hair is", HairColor)
+        break

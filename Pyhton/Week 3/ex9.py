@@ -9,8 +9,14 @@ low = 0 # Low value
 high = 10000 # High value
 epsilon = 100 # Epsilon
 
+while True:
+    try:
+        starting_salary = float(input("Enter the starting salary: ")) # Enter your starting salary
+        break
+    except ValueError:
+        continue
+
 percent_saved = int((low + high) / 2) # The percentage amount currently saved
-starting_salary = float(input("Enter the starting salary: ")) # Enter your starting salary
 monthly_salary = (starting_salary / 12) # Calculate the monthly salary
 
 # While months is less than 36 calculate the best saving rate for a house down payment

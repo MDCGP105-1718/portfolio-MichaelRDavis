@@ -1,5 +1,5 @@
 # Copyright Chris Janes 2017. All Rights Reserved.
-# Author Chris Janes - 9 November 2017
+# Author Chris Janes
 
 # Hangman Game
 # -----------------------------------
