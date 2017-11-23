@@ -6,8 +6,11 @@ class Card(object):
         self.Rank = Rank
         self.Suit = Suit
 
-    Rank = (2, 3, 4, 5, 6, 7, 8, 9, 10, "Jack", "Queen", "King", "Ace")
+    Rank = ("2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace")
     Suit = ("Spades", "Diamonds", "Hearts", "Clubs")
+
+    def __str__(self):
+        return Card.
 
 # Our deck of cards
 class Deck(object):
