@@ -1,115 +1,100 @@
 import random
 
-# Our card
 class Card(object):
-    def __init__(self, Rank, Suit):
-        self.Rank = Rank
-        self.Suit = Suit
+    rank = ("Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King")
+    suit = ("Clubs", "Diamonds", "Hearts", "Spades")
 
-    Rank = ("2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace")
-    Suit = ("Spades", "Diamonds", "Hearts", "Clubs")
+    def __init__(self, rank, suit):
+        self.rank = rank
+        self.suit = suit
 
     def __str__(self):
-        return Card.
+        prntStr = self.rank + self.suit
+        return prntStr
 
-# Our deck of cards
-class Deck(object):
+class Hand(object):
     def __init__(self):
-        self.Deck = []
-        for suit in Card.Suit:
-            for rank in Card.Rank:
-                card = Card(Rank, Suit)
-                self.Deck.append(card)
+        self.cards = []
 
-    def suffleDeck(self):
-        random.shuffle(self.Deck)
+    def __str__(self):
+        if self.cards:
+            prntStr = " "
+            for card in self.cards:
+                prntStr += str(card) + "  "
+        else:
+            prntStr = " empty "
+        return prntStr
 
-# Our hand we are dealt
-class Hand():
+    def clear(self):
+        self.cards = []
+
+    def add(self, card):
+        self.cards.append(card)
+
+    def give(self, card, hand):
+        self.cards.remove(card)
+        hand.add(card)
+
+class Deck(Hand):
     def __init__(self):
-        self.Deck = Deck()
-        self.Deck.shuffle()
-        self.Hands = []
-        self.MaxHand = 5
+        self.cards = []
 
-    def FiveOfAKind(self):
-        print("Five of a Kind")
+    def create(self):
+        for suit in Card.suit:
+            for rank in Card.rank:
+                self.add(Card(rank, suit))
 
-    def StraightFlush(self):
-        print("Straight Flush")
+    def shuffle(self):
+        random.shuffle(self.cards)
 
-    def FourOfAKind(self):
-
-        print("Four of a Kind")
-
-    def FullHouse(self):
-        print("Full House")
-
-    def Flush(self):
-        print("Flush")
-        flushSuit = self.Hands.Suit
-        for cards in self.Hands:
-            if cards.Suit != flushSuit:
-                print("This hand is not a Flush\n")
-                return False
-            else:
-                flushSuit = cards.Suit
-                print("This hand is a Flush!\n")
-                return True
-
-    def Straight(self):
-        print("Straight")
-
-    def ThreeOfAKind(self):
-        print("Three of a Kind")
-
-    def TwoPair(self):
-        print("Two Pair")
-
-    def OnePair(self):
-        print("One Pair")
-
-    def HighCard(self):
-        print("High Card")
-
-    def GetHand(self):
-        return Hands
-
-# The player class, each player is dealt a hand
-class Player():
-    def __init__(self):
-        self.players = 0
-        self.maxPlayers = 4
-
-    def getNumPlayers(self):
-        while True:
-            try:
-                self.players = int(input("Insert the number of players you want to play Poker with.\n "))
-                if self.players > self.maxPlayers:
-                    print("There are two many players, this Poker Torunament can only support four players!\n")
-                    continue
+    def dealCards(self, hands, cardsPerHand):
+        for rounds in range(cardsPerHand):
+            for hand in hands:
+                if self.cards:
+                    topCard = self.cards[0]
+                    self.give(topCard, hand)
                 else:
-                    print("Press enter to deal the cards to each player!\n")
-                    break
-            except ValueError:
-                print("Not a numerical value, please try agian\n")
-                continue
+                    print("Can't deal, No more cards in deck!")
 
-# The game of poker that we play
-class PokerGame():
+class Player(object):
+    def __init__(self):
+        self.playerHand = Hand()
+
+class Game():
     def __init__(self):
         self.players = Player()
-        self.hands = Hand()
+        self.numPlayers
 
-    def play(self):
-        print("Welcome to the Python Poker Tournament!\n")
-        self.players.getNumPlayers()
-        self.dealHands()
+    def intro(self):
+        print("Welcome to Poker!\n")
+        print("How many players do you wish to play with?\n")
+        while True:
+            try:
+                self.numPlayers = input("Insert number here: ")
+                break
+            except ValueError:
+                print("Numerical values only please.\n")
+                continue
 
-    def dealHands(self):
-        for player in self.players.getNumPlayers():
-            dealtHand = self.hands.GetHand()
+deck1 = Deck()
+deck1.create()
+print(deck1)
+deck1.shuffle()
+print(deck1)
 
-# Start our poker game
-poker = PokerGame()
-poker.play()
+playerOneHand = Hand()
+playerTwoHand = Hand()
+hands = [playerOneHand, playerTwoHand]
+deck1.dealCards(hands, 5)
+
+print("Dealt 5 cards to player one and player two.\n")
+print("Player one hand: \n")
+print(playerOneHand)
+print("Player two hand: \n")
+print(playerTwoHand)
+print("Deck: \n")
+print(deck1)
+deck1.clear()
+print("Cleared the deck. \n")
+print("Deck: ", deck1)
+input("Press the enter key to exit.\n")
