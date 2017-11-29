@@ -87,7 +87,7 @@ playerTwoHand = Hand()
 hands = [playerOneHand, playerTwoHand]
 deck1.dealCards(hands, 5)
 
-print("Dealt 5 cards to player one and player two.\n")
+print("Deal 5 cards to player one and player two.\n")
 print("Player one hand: \n")
 print(playerOneHand)
 print("Player two hand: \n")
